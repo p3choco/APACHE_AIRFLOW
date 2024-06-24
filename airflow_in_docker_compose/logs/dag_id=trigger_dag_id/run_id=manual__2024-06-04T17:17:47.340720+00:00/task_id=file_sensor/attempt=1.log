@@ -1,0 +1,24 @@
+[2024-06-04T17:17:55.330+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-04T17:17:55.487+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: trigger_dag_id.file_sensor manual__2024-06-04T17:17:47.340720+00:00 [queued]>
+[2024-06-04T17:17:55.536+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: trigger_dag_id.file_sensor manual__2024-06-04T17:17:47.340720+00:00 [queued]>
+[2024-06-04T17:17:55.541+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-04T17:17:55.596+0000] {taskinstance.py:2330} INFO - Executing <Task(FileSensor): file_sensor> on 2024-06-04 17:17:47.340720+00:00
+[2024-06-04T17:17:55.608+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=504) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-04T17:17:55.611+0000] {standard_task_runner.py:63} INFO - Started process 508 to run task
+[2024-06-04T17:17:55.611+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'trigger_dag_id', 'file_sensor', 'manual__2024-06-04T17:17:47.340720+00:00', '--job-id', '118', '--raw', '--subdir', 'DAGS_FOLDER/trigger_dag.py', '--cfg-path', '/tmp/tmpobefxem7']
+[2024-06-04T17:17:55.618+0000] {standard_task_runner.py:91} INFO - Job 118: Subtask file_sensor
+[2024-06-04T17:17:55.725+0000] {task_command.py:426} INFO - Running <TaskInstance: trigger_dag_id.file_sensor manual__2024-06-04T17:17:47.340720+00:00 [running]> on host bfd73b4e3b6f
+[2024-06-04T17:17:55.909+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='trigger_dag_id' AIRFLOW_CTX_TASK_ID='file_sensor' AIRFLOW_CTX_EXECUTION_DATE='2024-06-04T17:17:47.340720+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-04T17:17:47.340720+00:00'
+[2024-06-04T17:17:55.911+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-04T17:17:55.912+0000] {baseoperator.py:399} WARNING - FileSensor.execute cannot be called outside TaskInstance!
+[2024-06-04T17:17:55.927+0000] {base.py:84} INFO - Using connection ID 'fs_default' for task execution.
+[2024-06-04T17:17:55.929+0000] {filesystem.py:85} INFO - Poking for file /opt/***
+[2024-06-04T17:17:55.931+0000] {base.py:294} INFO - Success criteria met. Exiting.
+[2024-06-04T17:17:55.932+0000] {filesystem.py:85} INFO - Poking for file /opt/***
+[2024-06-04T17:17:55.933+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-04T17:17:55.947+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=trigger_dag_id, task_id=file_sensor, run_id=manual__2024-06-04T17:17:47.340720+00:00, execution_date=20240604T171747, start_date=20240604T171755, end_date=20240604T171755
+[2024-06-04T17:17:55.999+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-04T17:17:56.022+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-04T17:17:56.025+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

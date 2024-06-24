@@ -1,0 +1,20 @@
+[2024-06-04T17:38:22.298+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-04T17:38:22.326+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: xdag_id_1.query_the_table manual__2024-06-04T17:38:02.969289+00:00 [queued]>
+[2024-06-04T17:38:22.336+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: xdag_id_1.query_the_table manual__2024-06-04T17:38:02.969289+00:00 [queued]>
+[2024-06-04T17:38:22.337+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-04T17:38:22.352+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): query_the_table> on 2024-06-04 17:38:02.969289+00:00
+[2024-06-04T17:38:22.358+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=87) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-04T17:38:22.360+0000] {standard_task_runner.py:63} INFO - Started process 89 to run task
+[2024-06-04T17:38:22.360+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'xdag_id_1', 'query_the_table', 'manual__2024-06-04T17:38:02.969289+00:00', '--job-id', '169', '--raw', '--subdir', 'DAGS_FOLDER/jobs_dag.py', '--cfg-path', '/tmp/tmpbj298g_7']
+[2024-06-04T17:38:22.364+0000] {standard_task_runner.py:91} INFO - Job 169: Subtask query_the_table
+[2024-06-04T17:38:22.414+0000] {task_command.py:426} INFO - Running <TaskInstance: xdag_id_1.query_the_table manual__2024-06-04T17:38:02.969289+00:00 [running]> on host 5b590737e019
+[2024-06-04T17:38:22.514+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='xdag_id_1' AIRFLOW_CTX_TASK_ID='query_the_table' AIRFLOW_CTX_EXECUTION_DATE='2024-06-04T17:38:02.969289+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-04T17:38:02.969289+00:00'
+[2024-06-04T17:38:22.516+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-04T17:38:22.530+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-06-04T17:38:22.531+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-04T17:38:22.542+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=xdag_id_1, task_id=query_the_table, run_id=manual__2024-06-04T17:38:02.969289+00:00, execution_date=20240604T173802, start_date=20240604T173822, end_date=20240604T173822
+[2024-06-04T17:38:22.583+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-04T17:38:22.603+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-04T17:38:22.605+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

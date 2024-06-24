@@ -1,0 +1,1998 @@
+[2024-06-10T11:51:05.178+0000] {processor.py:161} INFO - Started process (PID=31) to work on /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:51:05.182+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/trigger_dag.py.zip for tasks to queue
+[2024-06-10T11:51:05.190+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:05.189+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:51:05.359+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/slack/deprecation.py:14 UserWarning: slack package is deprecated. Please use slack_sdk.web/webhook/rtm package instead. For more info, go to https://slack.dev/python-slack-sdk/v3-migration/
+[2024-06-10T11:51:05.813+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/slack/deprecation.py:14 UserWarning: slack.errors package is deprecated. Please use slack_sdk.errors package instead. For more info, go to https://slack.dev/python-slack-sdk/v3-migration/
+[2024-06-10T11:51:05.850+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:05.849+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f0266cd10>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:51:06.064+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:06.063+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f141807d0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:51:06.472+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:06.471+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f14183e90>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:51:06.492+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:06.480+0000] {variable.py:257} ERROR - Unable to retrieve variable from secrets backend (VaultBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f5f141b8080>: Failed to resolve 'vault' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f141b8080>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 243, in check_for_write_conflict
+    var_val = secrets_backend.get_variable(key=key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/secrets/vault.py", line 245, in get_variable
+    response = self.vault_client.get_secret(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 376, in get_secret
+    response = self.client.secrets.kv.v2.read_secret_version(
+               ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 182, in client
+    if not self._client.is_authenticated():
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 236, in _client
+    if _client.is_authenticated():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 512, in is_authenticated
+    self.lookup_token()
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 433, in lookup_token
+    return self._adapter.get(path, wrap_ttl=wrap_ttl)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 146, in get
+    return self.request("get", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 408, in request
+    response = super().request(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 367, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f141b8080>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+[2024-06-10T11:51:06.517+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:06.517+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2024-06-10T11:51:06.541+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:06.541+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f14182cf0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:51:06.751+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:06.750+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f14183380>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:51:07.189+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:07.188+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f141b9970>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:51:07.235+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:07.210+0000] {variable.py:287} ERROR - Unable to retrieve variable from secrets backend (VaultBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f5f141b98b0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f141b98b0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 283, in get_variable_from_secrets
+    var_val = secrets_backend.get_variable(key=key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/secrets/vault.py", line 245, in get_variable
+    response = self.vault_client.get_secret(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 376, in get_secret
+    response = self.client.secrets.kv.v2.read_secret_version(
+               ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 182, in client
+    if not self._client.is_authenticated():
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 236, in _client
+    if _client.is_authenticated():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 512, in is_authenticated
+    self.lookup_token()
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 433, in lookup_token
+    return self._adapter.get(path, wrap_ttl=wrap_ttl)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 146, in get
+    return self.request("get", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 408, in request
+    response = super().request(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 367, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f141b98b0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+[2024-06-10T11:51:07.273+0000] {processor.py:840} INFO - DAG(s) 'trigger_dag_id' retrieved from /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:51:07.552+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:07.551+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-10T11:51:07.577+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:07.576+0000] {dag.py:3954} INFO - Setting next_dagrun for trigger_dag_id to None, run_after=None
+[2024-06-10T11:51:07.632+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/trigger_dag.py.zip took 2.471 seconds
+[2024-06-10T11:51:38.247+0000] {processor.py:161} INFO - Started process (PID=99) to work on /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:51:38.252+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/trigger_dag.py.zip for tasks to queue
+[2024-06-10T11:51:38.261+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:38.261+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:51:38.301+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/slack/deprecation.py:14 UserWarning: slack package is deprecated. Please use slack_sdk.web/webhook/rtm package instead. For more info, go to https://slack.dev/python-slack-sdk/v3-migration/
+[2024-06-10T11:51:38.377+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/slack/deprecation.py:14 UserWarning: slack.errors package is deprecated. Please use slack_sdk.errors package instead. For more info, go to https://slack.dev/python-slack-sdk/v3-migration/
+[2024-06-10T11:51:38.406+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:38.406+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f0233f9e0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:51:38.615+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:38.614+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f14053230>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:51:39.025+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:39.024+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc4e90>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:51:39.048+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:39.037+0000] {variable.py:257} ERROR - Unable to retrieve variable from secrets backend (VaultBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f5f13dc5400>: Failed to resolve 'vault' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc5400>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 243, in check_for_write_conflict
+    var_val = secrets_backend.get_variable(key=key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/secrets/vault.py", line 245, in get_variable
+    response = self.vault_client.get_secret(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 376, in get_secret
+    response = self.client.secrets.kv.v2.read_secret_version(
+               ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 182, in client
+    if not self._client.is_authenticated():
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 236, in _client
+    if _client.is_authenticated():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 512, in is_authenticated
+    self.lookup_token()
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 433, in lookup_token
+    return self._adapter.get(path, wrap_ttl=wrap_ttl)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 146, in get
+    return self.request("get", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 408, in request
+    response = super().request(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 367, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc5400>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+[2024-06-10T11:51:39.073+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:39.072+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2024-06-10T11:51:39.097+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:39.097+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc7950>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:51:39.319+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:39.318+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc7d70>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:51:39.740+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:39.740+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13cac140>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:51:39.751+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:39.747+0000] {variable.py:287} ERROR - Unable to retrieve variable from secrets backend (VaultBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f5f13cac320>: Failed to resolve 'vault' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13cac320>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 283, in get_variable_from_secrets
+    var_val = secrets_backend.get_variable(key=key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/secrets/vault.py", line 245, in get_variable
+    response = self.vault_client.get_secret(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 376, in get_secret
+    response = self.client.secrets.kv.v2.read_secret_version(
+               ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 182, in client
+    if not self._client.is_authenticated():
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 236, in _client
+    if _client.is_authenticated():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 512, in is_authenticated
+    self.lookup_token()
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 433, in lookup_token
+    return self._adapter.get(path, wrap_ttl=wrap_ttl)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 146, in get
+    return self.request("get", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 408, in request
+    response = super().request(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 367, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13cac320>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+[2024-06-10T11:51:39.768+0000] {processor.py:840} INFO - DAG(s) 'trigger_dag_id' retrieved from /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:51:39.990+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:39.990+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-10T11:51:40.013+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:51:40.013+0000] {dag.py:3954} INFO - Setting next_dagrun for trigger_dag_id to None, run_after=None
+[2024-06-10T11:51:40.051+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/trigger_dag.py.zip took 1.823 seconds
+[2024-06-10T11:52:10.764+0000] {processor.py:161} INFO - Started process (PID=163) to work on /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:52:10.765+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/trigger_dag.py.zip for tasks to queue
+[2024-06-10T11:52:10.767+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:10.767+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:52:10.786+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/slack/deprecation.py:14 UserWarning: slack package is deprecated. Please use slack_sdk.web/webhook/rtm package instead. For more info, go to https://slack.dev/python-slack-sdk/v3-migration/
+[2024-06-10T11:52:10.835+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/slack/deprecation.py:14 UserWarning: slack.errors package is deprecated. Please use slack_sdk.errors package instead. For more info, go to https://slack.dev/python-slack-sdk/v3-migration/
+[2024-06-10T11:52:10.848+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:10.847+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f140dc770>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:52:11.055+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:11.054+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc4740>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:52:11.462+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:11.462+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc4b90>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:52:11.477+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:11.469+0000] {variable.py:257} ERROR - Unable to retrieve variable from secrets backend (VaultBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f5f13dc51c0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc51c0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 243, in check_for_write_conflict
+    var_val = secrets_backend.get_variable(key=key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/secrets/vault.py", line 245, in get_variable
+    response = self.vault_client.get_secret(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 376, in get_secret
+    response = self.client.secrets.kv.v2.read_secret_version(
+               ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 182, in client
+    if not self._client.is_authenticated():
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 236, in _client
+    if _client.is_authenticated():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 512, in is_authenticated
+    self.lookup_token()
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 433, in lookup_token
+    return self._adapter.get(path, wrap_ttl=wrap_ttl)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 146, in get
+    return self.request("get", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 408, in request
+    response = super().request(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 367, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc51c0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+[2024-06-10T11:52:11.498+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:11.497+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2024-06-10T11:52:11.512+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:11.512+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc7500>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:52:11.726+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:11.721+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc7920>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:52:12.135+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:12.135+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13d83c80>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:52:12.149+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:12.145+0000] {variable.py:287} ERROR - Unable to retrieve variable from secrets backend (VaultBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f5f13d838c0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13d838c0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 283, in get_variable_from_secrets
+    var_val = secrets_backend.get_variable(key=key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/secrets/vault.py", line 245, in get_variable
+    response = self.vault_client.get_secret(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 376, in get_secret
+    response = self.client.secrets.kv.v2.read_secret_version(
+               ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 182, in client
+    if not self._client.is_authenticated():
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 236, in _client
+    if _client.is_authenticated():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 512, in is_authenticated
+    self.lookup_token()
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 433, in lookup_token
+    return self._adapter.get(path, wrap_ttl=wrap_ttl)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 146, in get
+    return self.request("get", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 408, in request
+    response = super().request(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 367, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13d838c0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+[2024-06-10T11:52:12.161+0000] {processor.py:840} INFO - DAG(s) 'trigger_dag_id' retrieved from /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:52:12.334+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:12.333+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-10T11:52:12.348+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:12.348+0000] {dag.py:3954} INFO - Setting next_dagrun for trigger_dag_id to None, run_after=None
+[2024-06-10T11:52:12.375+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/trigger_dag.py.zip took 1.624 seconds
+[2024-06-10T11:52:42.730+0000] {processor.py:161} INFO - Started process (PID=227) to work on /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:52:42.732+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/trigger_dag.py.zip for tasks to queue
+[2024-06-10T11:52:42.735+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:42.735+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:52:42.757+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/slack/deprecation.py:14 UserWarning: slack package is deprecated. Please use slack_sdk.web/webhook/rtm package instead. For more info, go to https://slack.dev/python-slack-sdk/v3-migration/
+[2024-06-10T11:52:42.821+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/slack/deprecation.py:14 UserWarning: slack.errors package is deprecated. Please use slack_sdk.errors package instead. For more info, go to https://slack.dev/python-slack-sdk/v3-migration/
+[2024-06-10T11:52:42.849+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:42.848+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f140ddee0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:52:43.060+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:43.059+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc46e0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:52:43.472+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:43.471+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc4e90>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:52:43.499+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:43.482+0000] {variable.py:257} ERROR - Unable to retrieve variable from secrets backend (VaultBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f5f13dc5250>: Failed to resolve 'vault' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc5250>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 243, in check_for_write_conflict
+    var_val = secrets_backend.get_variable(key=key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/secrets/vault.py", line 245, in get_variable
+    response = self.vault_client.get_secret(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 376, in get_secret
+    response = self.client.secrets.kv.v2.read_secret_version(
+               ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 182, in client
+    if not self._client.is_authenticated():
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 236, in _client
+    if _client.is_authenticated():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 512, in is_authenticated
+    self.lookup_token()
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 433, in lookup_token
+    return self._adapter.get(path, wrap_ttl=wrap_ttl)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 146, in get
+    return self.request("get", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 408, in request
+    response = super().request(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 367, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc5250>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+[2024-06-10T11:52:43.518+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:43.517+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2024-06-10T11:52:43.540+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:43.539+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc72c0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:52:43.750+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:43.750+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc76e0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:52:44.163+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:44.162+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc7950>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:52:44.179+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:44.172+0000] {variable.py:287} ERROR - Unable to retrieve variable from secrets backend (VaultBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f5f13dc4e90>: Failed to resolve 'vault' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc4e90>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 283, in get_variable_from_secrets
+    var_val = secrets_backend.get_variable(key=key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/secrets/vault.py", line 245, in get_variable
+    response = self.vault_client.get_secret(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 376, in get_secret
+    response = self.client.secrets.kv.v2.read_secret_version(
+               ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 182, in client
+    if not self._client.is_authenticated():
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 236, in _client
+    if _client.is_authenticated():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 512, in is_authenticated
+    self.lookup_token()
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 433, in lookup_token
+    return self._adapter.get(path, wrap_ttl=wrap_ttl)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 146, in get
+    return self.request("get", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 408, in request
+    response = super().request(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 367, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc4e90>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+[2024-06-10T11:52:44.196+0000] {processor.py:840} INFO - DAG(s) 'trigger_dag_id' retrieved from /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:52:44.371+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:44.370+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-10T11:52:44.398+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:52:44.398+0000] {dag.py:3954} INFO - Setting next_dagrun for trigger_dag_id to None, run_after=None
+[2024-06-10T11:52:44.436+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/trigger_dag.py.zip took 1.717 seconds
+[2024-06-10T11:53:14.994+0000] {processor.py:161} INFO - Started process (PID=293) to work on /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:53:14.996+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/trigger_dag.py.zip for tasks to queue
+[2024-06-10T11:53:14.999+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:14.998+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:53:15.019+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/slack/deprecation.py:14 UserWarning: slack package is deprecated. Please use slack_sdk.web/webhook/rtm package instead. For more info, go to https://slack.dev/python-slack-sdk/v3-migration/
+[2024-06-10T11:53:15.065+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/slack/deprecation.py:14 UserWarning: slack.errors package is deprecated. Please use slack_sdk.errors package instead. For more info, go to https://slack.dev/python-slack-sdk/v3-migration/
+[2024-06-10T11:53:15.078+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:15.078+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f0266d1c0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:53:15.286+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:15.286+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f140de810>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:53:15.693+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:15.693+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc48f0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:53:15.710+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:15.702+0000] {variable.py:257} ERROR - Unable to retrieve variable from secrets backend (VaultBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f5f13dc5100>: Failed to resolve 'vault' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc5100>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 243, in check_for_write_conflict
+    var_val = secrets_backend.get_variable(key=key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/secrets/vault.py", line 245, in get_variable
+    response = self.vault_client.get_secret(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 376, in get_secret
+    response = self.client.secrets.kv.v2.read_secret_version(
+               ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 182, in client
+    if not self._client.is_authenticated():
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 236, in _client
+    if _client.is_authenticated():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 512, in is_authenticated
+    self.lookup_token()
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 433, in lookup_token
+    return self._adapter.get(path, wrap_ttl=wrap_ttl)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 146, in get
+    return self.request("get", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 408, in request
+    response = super().request(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 367, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc5100>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+[2024-06-10T11:53:15.726+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:15.726+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2024-06-10T11:53:15.741+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:15.740+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc7290>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:53:15.947+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:15.947+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc74a0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:53:16.356+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:16.356+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc7bf0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:53:16.371+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:16.365+0000] {variable.py:287} ERROR - Unable to retrieve variable from secrets backend (VaultBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f5f13dc7e00>: Failed to resolve 'vault' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc7e00>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 283, in get_variable_from_secrets
+    var_val = secrets_backend.get_variable(key=key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/secrets/vault.py", line 245, in get_variable
+    response = self.vault_client.get_secret(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 376, in get_secret
+    response = self.client.secrets.kv.v2.read_secret_version(
+               ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 182, in client
+    if not self._client.is_authenticated():
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 236, in _client
+    if _client.is_authenticated():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 512, in is_authenticated
+    self.lookup_token()
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 433, in lookup_token
+    return self._adapter.get(path, wrap_ttl=wrap_ttl)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 146, in get
+    return self.request("get", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 408, in request
+    response = super().request(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 367, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc7e00>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+[2024-06-10T11:53:16.388+0000] {processor.py:840} INFO - DAG(s) 'trigger_dag_id' retrieved from /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:53:16.581+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:16.581+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-10T11:53:16.600+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:16.600+0000] {dag.py:3954} INFO - Setting next_dagrun for trigger_dag_id to None, run_after=None
+[2024-06-10T11:53:16.629+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/trigger_dag.py.zip took 1.644 seconds
+[2024-06-10T11:53:46.791+0000] {processor.py:161} INFO - Started process (PID=365) to work on /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:53:46.793+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/trigger_dag.py.zip for tasks to queue
+[2024-06-10T11:53:46.795+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:46.795+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:53:46.816+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/slack/deprecation.py:14 UserWarning: slack package is deprecated. Please use slack_sdk.web/webhook/rtm package instead. For more info, go to https://slack.dev/python-slack-sdk/v3-migration/
+[2024-06-10T11:53:46.866+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/slack/deprecation.py:14 UserWarning: slack.errors package is deprecated. Please use slack_sdk.errors package instead. For more info, go to https://slack.dev/python-slack-sdk/v3-migration/
+[2024-06-10T11:53:46.881+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:46.880+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f141d7b90>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:53:47.091+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:47.091+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc0ef0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:53:47.499+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:47.499+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc1820>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:53:47.517+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:47.507+0000] {variable.py:257} ERROR - Unable to retrieve variable from secrets backend (VaultBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f5f13dc1d30>: Failed to resolve 'vault' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc1d30>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 243, in check_for_write_conflict
+    var_val = secrets_backend.get_variable(key=key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/secrets/vault.py", line 245, in get_variable
+    response = self.vault_client.get_secret(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 376, in get_secret
+    response = self.client.secrets.kv.v2.read_secret_version(
+               ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 182, in client
+    if not self._client.is_authenticated():
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 236, in _client
+    if _client.is_authenticated():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 512, in is_authenticated
+    self.lookup_token()
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 433, in lookup_token
+    return self._adapter.get(path, wrap_ttl=wrap_ttl)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 146, in get
+    return self.request("get", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 408, in request
+    response = super().request(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 367, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc1d30>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+[2024-06-10T11:53:47.534+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:47.533+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2024-06-10T11:53:47.553+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:47.553+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13ca8140>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:53:47.760+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:47.760+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13ca8590>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:53:48.167+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:48.166+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13ca8950>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:53:48.181+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:48.176+0000] {variable.py:287} ERROR - Unable to retrieve variable from secrets backend (VaultBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f5f13ca8c50>: Failed to resolve 'vault' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13ca8c50>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 283, in get_variable_from_secrets
+    var_val = secrets_backend.get_variable(key=key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/secrets/vault.py", line 245, in get_variable
+    response = self.vault_client.get_secret(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 376, in get_secret
+    response = self.client.secrets.kv.v2.read_secret_version(
+               ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 182, in client
+    if not self._client.is_authenticated():
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 236, in _client
+    if _client.is_authenticated():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 512, in is_authenticated
+    self.lookup_token()
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 433, in lookup_token
+    return self._adapter.get(path, wrap_ttl=wrap_ttl)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 146, in get
+    return self.request("get", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 408, in request
+    response = super().request(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 367, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13ca8c50>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+[2024-06-10T11:53:48.195+0000] {processor.py:840} INFO - DAG(s) 'trigger_dag_id' retrieved from /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:53:48.338+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:48.338+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-10T11:53:48.355+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:53:48.355+0000] {dag.py:3954} INFO - Setting next_dagrun for trigger_dag_id to None, run_after=None
+[2024-06-10T11:53:48.385+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/trigger_dag.py.zip took 1.602 seconds
+[2024-06-10T11:54:18.537+0000] {processor.py:161} INFO - Started process (PID=432) to work on /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:54:18.539+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/trigger_dag.py.zip for tasks to queue
+[2024-06-10T11:54:18.543+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:18.542+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:54:18.572+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/slack/deprecation.py:14 UserWarning: slack package is deprecated. Please use slack_sdk.web/webhook/rtm package instead. For more info, go to https://slack.dev/python-slack-sdk/v3-migration/
+[2024-06-10T11:54:18.639+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/slack/deprecation.py:14 UserWarning: slack.errors package is deprecated. Please use slack_sdk.errors package instead. For more info, go to https://slack.dev/python-slack-sdk/v3-migration/
+[2024-06-10T11:54:18.654+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:18.653+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f140dd8e0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:54:18.861+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:18.861+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13d9eb70>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:54:19.272+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:19.271+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13d9eed0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:54:19.299+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:19.287+0000] {variable.py:257} ERROR - Unable to retrieve variable from secrets backend (VaultBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f5f13d9f1d0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13d9f1d0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 243, in check_for_write_conflict
+    var_val = secrets_backend.get_variable(key=key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/secrets/vault.py", line 245, in get_variable
+    response = self.vault_client.get_secret(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 376, in get_secret
+    response = self.client.secrets.kv.v2.read_secret_version(
+               ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 182, in client
+    if not self._client.is_authenticated():
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 236, in _client
+    if _client.is_authenticated():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 512, in is_authenticated
+    self.lookup_token()
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 433, in lookup_token
+    return self._adapter.get(path, wrap_ttl=wrap_ttl)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 146, in get
+    return self.request("get", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 408, in request
+    response = super().request(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 367, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13d9f1d0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+[2024-06-10T11:54:19.323+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:19.322+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2024-06-10T11:54:19.342+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:19.341+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13c19730>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:54:19.557+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:19.557+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13c19bb0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:54:19.964+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:19.964+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13c19e20>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:54:19.979+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:19.972+0000] {variable.py:287} ERROR - Unable to retrieve variable from secrets backend (VaultBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f5f13c1a420>: Failed to resolve 'vault' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13c1a420>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 283, in get_variable_from_secrets
+    var_val = secrets_backend.get_variable(key=key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/secrets/vault.py", line 245, in get_variable
+    response = self.vault_client.get_secret(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 376, in get_secret
+    response = self.client.secrets.kv.v2.read_secret_version(
+               ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 182, in client
+    if not self._client.is_authenticated():
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 236, in _client
+    if _client.is_authenticated():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 512, in is_authenticated
+    self.lookup_token()
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 433, in lookup_token
+    return self._adapter.get(path, wrap_ttl=wrap_ttl)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 146, in get
+    return self.request("get", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 408, in request
+    response = super().request(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 367, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13c1a420>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+[2024-06-10T11:54:19.995+0000] {processor.py:840} INFO - DAG(s) 'trigger_dag_id' retrieved from /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:54:20.308+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:20.307+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-10T11:54:20.323+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:20.323+0000] {dag.py:3954} INFO - Setting next_dagrun for trigger_dag_id to None, run_after=None
+[2024-06-10T11:54:20.352+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/trigger_dag.py.zip took 1.827 seconds
+[2024-06-10T11:54:51.217+0000] {processor.py:161} INFO - Started process (PID=500) to work on /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:54:51.219+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/trigger_dag.py.zip for tasks to queue
+[2024-06-10T11:54:51.222+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:51.221+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:54:51.247+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/slack/deprecation.py:14 UserWarning: slack package is deprecated. Please use slack_sdk.web/webhook/rtm package instead. For more info, go to https://slack.dev/python-slack-sdk/v3-migration/
+[2024-06-10T11:54:51.320+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/slack/deprecation.py:14 UserWarning: slack.errors package is deprecated. Please use slack_sdk.errors package instead. For more info, go to https://slack.dev/python-slack-sdk/v3-migration/
+[2024-06-10T11:54:51.338+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:51.337+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f02678380>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:54:51.547+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:51.546+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13d8b800>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:54:51.954+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:51.954+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f140500b0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:54:51.969+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:51.962+0000] {variable.py:257} ERROR - Unable to retrieve variable from secrets backend (VaultBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f5f13de01a0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13de01a0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 243, in check_for_write_conflict
+    var_val = secrets_backend.get_variable(key=key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/secrets/vault.py", line 245, in get_variable
+    response = self.vault_client.get_secret(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 376, in get_secret
+    response = self.client.secrets.kv.v2.read_secret_version(
+               ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 182, in client
+    if not self._client.is_authenticated():
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 236, in _client
+    if _client.is_authenticated():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 512, in is_authenticated
+    self.lookup_token()
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 433, in lookup_token
+    return self._adapter.get(path, wrap_ttl=wrap_ttl)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 146, in get
+    return self.request("get", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 408, in request
+    response = super().request(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 367, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13de01a0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+[2024-06-10T11:54:51.995+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:51.994+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2024-06-10T11:54:52.017+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:52.017+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13de2b70>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:54:52.228+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:52.227+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13de07d0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:54:52.638+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:52.637+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13de33b0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:54:52.652+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:52.647+0000] {variable.py:287} ERROR - Unable to retrieve variable from secrets backend (VaultBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f5f140512e0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f140512e0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 283, in get_variable_from_secrets
+    var_val = secrets_backend.get_variable(key=key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/secrets/vault.py", line 245, in get_variable
+    response = self.vault_client.get_secret(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 376, in get_secret
+    response = self.client.secrets.kv.v2.read_secret_version(
+               ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 182, in client
+    if not self._client.is_authenticated():
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 236, in _client
+    if _client.is_authenticated():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 512, in is_authenticated
+    self.lookup_token()
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 433, in lookup_token
+    return self._adapter.get(path, wrap_ttl=wrap_ttl)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 146, in get
+    return self.request("get", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 408, in request
+    response = super().request(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 367, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f140512e0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+[2024-06-10T11:54:52.666+0000] {processor.py:840} INFO - DAG(s) 'trigger_dag_id' retrieved from /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:54:52.979+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:52.979+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-10T11:54:52.996+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:54:52.996+0000] {dag.py:3954} INFO - Setting next_dagrun for trigger_dag_id to None, run_after=None
+[2024-06-10T11:54:53.025+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/trigger_dag.py.zip took 1.816 seconds
+[2024-06-10T11:55:23.482+0000] {processor.py:161} INFO - Started process (PID=560) to work on /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:55:23.483+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/trigger_dag.py.zip for tasks to queue
+[2024-06-10T11:55:23.486+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:55:23.486+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:55:23.507+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/slack/deprecation.py:14 UserWarning: slack package is deprecated. Please use slack_sdk.web/webhook/rtm package instead. For more info, go to https://slack.dev/python-slack-sdk/v3-migration/
+[2024-06-10T11:55:23.552+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/slack/deprecation.py:14 UserWarning: slack.errors package is deprecated. Please use slack_sdk.errors package instead. For more info, go to https://slack.dev/python-slack-sdk/v3-migration/
+[2024-06-10T11:55:23.565+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:55:23.565+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f145f61b0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:55:23.773+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:55:23.773+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc4fe0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:55:24.181+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:55:24.181+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc5340>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:55:24.196+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:55:24.189+0000] {variable.py:257} ERROR - Unable to retrieve variable from secrets backend (VaultBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f5f13dc59a0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc59a0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 243, in check_for_write_conflict
+    var_val = secrets_backend.get_variable(key=key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/secrets/vault.py", line 245, in get_variable
+    response = self.vault_client.get_secret(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 376, in get_secret
+    response = self.client.secrets.kv.v2.read_secret_version(
+               ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 182, in client
+    if not self._client.is_authenticated():
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 236, in _client
+    if _client.is_authenticated():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 512, in is_authenticated
+    self.lookup_token()
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 433, in lookup_token
+    return self._adapter.get(path, wrap_ttl=wrap_ttl)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 146, in get
+    return self.request("get", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 408, in request
+    response = super().request(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 367, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc59a0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+[2024-06-10T11:55:24.211+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:55:24.211+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2024-06-10T11:55:24.225+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:55:24.225+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc7bc0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:55:24.432+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:55:24.431+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13dc7fb0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:55:24.840+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:55:24.839+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13cac620>: Failed to resolve 'vault' ([Errno -2] Name or service not known)")': /v1/auth/token/lookup-self
+[2024-06-10T11:55:24.851+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:55:24.847+0000] {variable.py:287} ERROR - Unable to retrieve variable from secrets backend (VaultBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+    conn.request(
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 400, in request
+    self.endheaders()
+  File "/usr/local/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 238, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f5f13cac9b0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 877, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13cac9b0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 283, in get_variable_from_secrets
+    var_val = secrets_backend.get_variable(key=key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/secrets/vault.py", line 245, in get_variable
+    response = self.vault_client.get_secret(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 376, in get_secret
+    response = self.client.secrets.kv.v2.read_secret_version(
+               ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 182, in client
+    if not self._client.is_authenticated():
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/hashicorp/_internal_client/vault_client.py", line 236, in _client
+    if _client.is_authenticated():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 512, in is_authenticated
+    self.lookup_token()
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/v1/__init__.py", line 433, in lookup_token
+    return self._adapter.get(path, wrap_ttl=wrap_ttl)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 146, in get
+    return self.request("get", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 408, in request
+    response = super().request(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/hvac/adapters.py", line 367, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='vault', port=8200): Max retries exceeded with url: /v1/auth/token/lookup-self (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f5f13cac9b0>: Failed to resolve 'vault' ([Errno -2] Name or service not known)"))
+[2024-06-10T11:55:24.867+0000] {processor.py:840} INFO - DAG(s) 'trigger_dag_id' retrieved from /opt/airflow/dags/trigger_dag.py.zip
+[2024-06-10T11:55:25.261+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:55:25.260+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-06-10T11:55:25.282+0000] {logging_mixin.py:188} INFO - [2024-06-10T11:55:25.282+0000] {dag.py:3954} INFO - Setting next_dagrun for trigger_dag_id to None, run_after=None
+[2024-06-10T11:55:25.324+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/trigger_dag.py.zip took 1.850 seconds

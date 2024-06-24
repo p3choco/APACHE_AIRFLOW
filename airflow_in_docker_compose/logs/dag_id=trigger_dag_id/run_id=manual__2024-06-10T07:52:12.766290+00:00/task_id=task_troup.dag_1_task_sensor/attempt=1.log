@@ -1,0 +1,26 @@
+[2024-06-10T07:52:21.293+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-10T07:52:21.324+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: trigger_dag_id.task_troup.dag_1_task_sensor manual__2024-06-10T07:52:12.766290+00:00 [queued]>
+[2024-06-10T07:52:21.333+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: trigger_dag_id.task_troup.dag_1_task_sensor manual__2024-06-10T07:52:12.766290+00:00 [queued]>
+[2024-06-10T07:52:21.334+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-10T07:52:21.349+0000] {taskinstance.py:2330} INFO - Executing <Task(ExternalTaskSensor): task_troup.dag_1_task_sensor> on 2024-06-10 07:52:12.766290+00:00
+[2024-06-10T07:52:21.359+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=19578) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-10T07:52:21.362+0000] {standard_task_runner.py:63} INFO - Started process 19584 to run task
+[2024-06-10T07:52:21.361+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'trigger_dag_id', 'task_troup.dag_1_task_sensor', 'manual__2024-06-10T07:52:12.766290+00:00', '--job-id', '665', '--raw', '--subdir', 'DAGS_FOLDER/trigger_dag.py', '--cfg-path', '/tmp/tmpdpx2p33p']
+[2024-06-10T07:52:21.368+0000] {standard_task_runner.py:91} INFO - Job 665: Subtask task_troup.dag_1_task_sensor
+[2024-06-10T07:52:21.434+0000] {task_command.py:426} INFO - Running <TaskInstance: trigger_dag_id.task_troup.dag_1_task_sensor manual__2024-06-10T07:52:12.766290+00:00 [running]> on host db8c7b709f57
+[2024-06-10T07:52:21.568+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='trigger_dag_id' AIRFLOW_CTX_TASK_ID='task_troup.dag_1_task_sensor' AIRFLOW_CTX_EXECUTION_DATE='2024-06-10T07:52:12.766290+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-10T07:52:12.766290+00:00'
+[2024-06-10T07:52:21.571+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-10T07:52:21.574+0000] {baseoperator.py:399} WARNING - ExternalTaskSensor.execute cannot be called outside TaskInstance!
+[2024-06-10T07:52:21.586+0000] {external_task.py:274} INFO - Poking for DAG 'xdag_id_1' on 2024-06-10T07:52:16.367631+00:00 ... 
+[2024-06-10T07:52:21.586+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/utils/session.py:79: DeprecationWarning: This method is deprecated and will be removed in future.
+  return func(*args, session=session, **kwargs)
+
+[2024-06-10T07:52:46.659+0000] {local_task_job_runner.py:310} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2024-06-10T07:52:46.661+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-10T07:52:46.663+0000] {process_utils.py:132} INFO - Sending 15 to group 19584. PIDs of all processes in the group: [19584]
+[2024-06-10T07:52:46.664+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 19584
+[2024-06-10T07:52:46.664+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-06-10T07:52:46.665+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-10T07:52:46.697+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=19584, status='terminated', exitcode=0, started='07:52:20') (19584) terminated with exit code 0

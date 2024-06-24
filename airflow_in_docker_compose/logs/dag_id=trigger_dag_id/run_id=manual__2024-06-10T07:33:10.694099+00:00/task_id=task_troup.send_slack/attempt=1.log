@@ -1,0 +1,40 @@
+[2024-06-10T07:33:27.725+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-10T07:33:28.073+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: trigger_dag_id.task_troup.send_slack manual__2024-06-10T07:33:10.694099+00:00 [queued]>
+[2024-06-10T07:33:28.092+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: trigger_dag_id.task_troup.send_slack manual__2024-06-10T07:33:10.694099+00:00 [queued]>
+[2024-06-10T07:33:28.093+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-10T07:33:28.136+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): task_troup.send_slack> on 2024-06-10 07:33:10.694099+00:00
+[2024-06-10T07:33:28.369+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=19216) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-10T07:33:28.398+0000] {standard_task_runner.py:63} INFO - Started process 19223 to run task
+[2024-06-10T07:33:28.379+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'trigger_dag_id', 'task_troup.send_slack', 'manual__2024-06-10T07:33:10.694099+00:00', '--job-id', '625', '--raw', '--subdir', 'DAGS_FOLDER/trigger_dag.py', '--cfg-path', '/tmp/tmphj5_vpn9']
+[2024-06-10T07:33:28.424+0000] {standard_task_runner.py:91} INFO - Job 625: Subtask task_troup.send_slack
+[2024-06-10T07:33:28.657+0000] {task_command.py:426} INFO - Running <TaskInstance: trigger_dag_id.task_troup.send_slack manual__2024-06-10T07:33:10.694099+00:00 [running]> on host db8c7b709f57
+[2024-06-10T07:33:29.190+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='trigger_dag_id' AIRFLOW_CTX_TASK_ID='task_troup.send_slack' AIRFLOW_CTX_EXECUTION_DATE='2024-06-10T07:33:10.694099+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-10T07:33:10.694099+00:00'
+[2024-06-10T07:33:29.203+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-10T07:33:29.205+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-10T07:33:29.206+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/trigger_dag.py", line 25, in send_log_to_slack
+    slack_token = get_from_connection
+                  ^^^^^^^^^^^^^^^^^^^
+NameError: name 'get_from_connection' is not defined
+[2024-06-10T07:33:29.284+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=trigger_dag_id, task_id=task_troup.send_slack, run_id=manual__2024-06-10T07:33:10.694099+00:00, execution_date=20240610T073310, start_date=20240610T073328, end_date=20240610T073329
+[2024-06-10T07:33:29.325+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 625 for task task_troup.send_slack (name 'get_from_connection' is not defined; 19223)
+[2024-06-10T07:33:29.413+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-10T07:33:29.438+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

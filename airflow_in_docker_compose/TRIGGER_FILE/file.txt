@@ -1,0 +1,46 @@
+from datetime import datetime
+from datetime import timedelta
+from airflow import DAG
+from airflow.operators.python import PythonOperator
+from airflow.operators.empty import EmptyOperator
+
+config = {
+    'xdag_id_1': {'schedule_interval': timedelta(days=2),
+                  "start_date": datetime(2018, 11, 11),
+                  'table_name': 'table_name_1'},
+    'xdag_id_2': {'schedule_interval': timedelta(days=1),
+                  "start_date": datetime(2018, 11, 11),
+                  'table_name': 'table_name_2'},
+    'xdag_id_3': {'schedule_interval': timedelta(days=1),
+                  "start_date": datetime(2018, 11, 11),
+                  'table_name': 'table_name_3'}}
+
+def log_info(dag_id, database):
+    print(f'{dag_id} start processing tables in database: {database}')
+
+for dag_id, dag_config in config.items():
+
+    with DAG(dag_id=dag_id,
+             schedule=dag_config['schedule_interval'],
+             start_date=dag_config['start_date'],
+             ) as dag:
+
+        task1 = PythonOperator(
+            task_id="log_info",
+            python_callable=log_info,
+            op_args=[dag_id, dag_config['table_name']],
+            dag=dag
+        )
+
+        task2 = EmptyOperator(
+            task_id='insert_new_row',
+            dag=dag
+        )
+
+        task3 = EmptyOperator(
+            task_id='query_the_table',
+            dag=dag
+        )
+
+        task1 >> task2 >> task3
+

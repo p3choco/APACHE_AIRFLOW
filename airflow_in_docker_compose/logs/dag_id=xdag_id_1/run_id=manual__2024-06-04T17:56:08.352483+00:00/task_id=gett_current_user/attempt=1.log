@@ -1,0 +1,24 @@
+[2024-06-04T17:56:21.258+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-04T17:56:21.324+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: xdag_id_1.gett_current_user manual__2024-06-04T17:56:08.352483+00:00 [queued]>
+[2024-06-04T17:56:21.341+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: xdag_id_1.gett_current_user manual__2024-06-04T17:56:08.352483+00:00 [queued]>
+[2024-06-04T17:56:21.342+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-04T17:56:21.370+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): gett_current_user> on 2024-06-04 17:56:08.352483+00:00
+[2024-06-04T17:56:21.382+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=109) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-04T17:56:21.385+0000] {standard_task_runner.py:63} INFO - Started process 111 to run task
+[2024-06-04T17:56:21.385+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'xdag_id_1', 'gett_current_user', 'manual__2024-06-04T17:56:08.352483+00:00', '--job-id', '182', '--raw', '--subdir', 'DAGS_FOLDER/jobs_dag.py', '--cfg-path', '/tmp/tmpk3_p26xj']
+[2024-06-04T17:56:21.390+0000] {standard_task_runner.py:91} INFO - Job 182: Subtask gett_current_user
+[2024-06-04T17:56:21.568+0000] {task_command.py:426} INFO - Running <TaskInstance: xdag_id_1.gett_current_user manual__2024-06-04T17:56:08.352483+00:00 [running]> on host 8c874f8dd8e6
+[2024-06-04T17:56:21.725+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='xdag_id_1' AIRFLOW_CTX_TASK_ID='gett_current_user' AIRFLOW_CTX_EXECUTION_DATE='2024-06-04T17:56:08.352483+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-04T17:56:08.352483+00:00'
+[2024-06-04T17:56:21.728+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-04T17:56:21.730+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-06-04T17:56:21.731+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'whoami']
+[2024-06-04T17:56:21.746+0000] {subprocess.py:86} INFO - Output:
+[2024-06-04T17:56:21.752+0000] {subprocess.py:93} INFO - default
+[2024-06-04T17:56:21.753+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-06-04T17:56:21.756+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-04T17:56:21.789+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=xdag_id_1, task_id=gett_current_user, run_id=manual__2024-06-04T17:56:08.352483+00:00, execution_date=20240604T175608, start_date=20240604T175621, end_date=20240604T175621
+[2024-06-04T17:56:21.856+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-04T17:56:21.900+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-04T17:56:21.903+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

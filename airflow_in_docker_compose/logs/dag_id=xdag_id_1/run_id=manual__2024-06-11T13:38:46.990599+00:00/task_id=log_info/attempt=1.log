@@ -1,0 +1,3 @@
+[2024-06-11T15:07:22.229+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-11T15:07:22.255+0000] {taskinstance.py:2066} INFO - Dependencies not met for <TaskInstance: xdag_id_1.log_info manual__2024-06-11T13:38:46.990599+00:00 [failed]>, dependency 'Task Instance State' FAILED: Task is in the 'failed' state.
+[2024-06-11T15:07:22.256+0000] {local_task_job_runner.py:163} INFO - Task is not able to be run

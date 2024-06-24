@@ -1,0 +1,71 @@
+[2024-06-07T07:42:16.155+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-07T07:42:16.180+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: xdag_id_1.check_if_table_exists manual__2024-06-07T07:42:03.963391+00:00 [queued]>
+[2024-06-07T07:42:16.189+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: xdag_id_1.check_if_table_exists manual__2024-06-07T07:42:03.963391+00:00 [queued]>
+[2024-06-07T07:42:16.190+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-07T07:42:16.205+0000] {taskinstance.py:2330} INFO - Executing <Task(_BranchPythonDecoratedOperator): check_if_table_exists> on 2024-06-07 07:42:03.963391+00:00
+[2024-06-07T07:42:16.212+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=11425) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-07T07:42:16.214+0000] {standard_task_runner.py:63} INFO - Started process 11427 to run task
+[2024-06-07T07:42:16.214+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'xdag_id_1', 'check_if_table_exists', 'manual__2024-06-07T07:42:03.963391+00:00', '--job-id', '528', '--raw', '--subdir', 'DAGS_FOLDER/jobs_dag.py', '--cfg-path', '/tmp/tmpsmj2u9s6']
+[2024-06-07T07:42:16.218+0000] {standard_task_runner.py:91} INFO - Job 528: Subtask check_if_table_exists
+[2024-06-07T07:42:16.271+0000] {task_command.py:426} INFO - Running <TaskInstance: xdag_id_1.check_if_table_exists manual__2024-06-07T07:42:03.963391+00:00 [running]> on host db8c7b709f57
+[2024-06-07T07:42:16.374+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='xdag_id_1' AIRFLOW_CTX_TASK_ID='check_if_table_exists' AIRFLOW_CTX_EXECUTION_DATE='2024-06-07T07:42:03.963391+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-07T07:42:03.963391+00:00'
+[2024-06-07T07:42:16.376+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-07T07:42:16.386+0000] {base.py:84} INFO - Using connection ID 'postgres_default' for task execution.
+[2024-06-07T07:42:16.392+0000] {sql.py:470} INFO - Running statement: SELECT * FROM information_schema.tables WHERE table_schema = '{'id': 'Integer, primary key, autoincrement', 'name': 'String(50), not nullable', 'description': 'Text, nullable', 'difficulty_level': 'String(20), not nullable', 'duration': 'Float, not nullable', 'created_at': 'DateTime, not nullable', 'updated_at': 'DateTime, not nullable'}'AND table_name = 'table_name_1';, parameters: None
+[2024-06-07T07:42:16.397+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-07T07:42:16.399+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 269, in execute
+    return self.do_branch(context, super().execute(context))
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/jobs_dag.py", line 46, in check_table_exist
+    query = hook.get_first(sql=sql_to_check_table_exist.format(schema, table_name))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 292, in get_first
+    return self.run(sql=sql, parameters=parameters, handler=fetch_one_handler)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 418, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 475, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.SyntaxError: syntax error at or near "id"
+LINE 1: ...information_schema.tables WHERE table_schema = '{'id': 'Inte...
+                                                             ^
+
+[2024-06-07T07:42:16.411+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=xdag_id_1, task_id=check_if_table_exists, run_id=manual__2024-06-07T07:42:03.963391+00:00, execution_date=20240607T074203, start_date=20240607T074216, end_date=20240607T074216
+[2024-06-07T07:42:16.425+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 528 for task check_if_table_exists (syntax error at or near "id"
+LINE 1: ...information_schema.tables WHERE table_schema = '{'id': 'Inte...
+                                                             ^
+; 11427)
+[2024-06-07T07:42:16.438+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-07T07:42:16.450+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/models/baseoperator.py:1296: AirflowProviderDeprecationWarning: Call to deprecated class PostgresOperator. (Please use `***.providers.common.sql.operators.sql.SQLExecuteQueryOperator`.Also, you can provide `hook_params={'schema': <database>}`.)
+  result = cls.__new__(cls)
+
+[2024-06-07T07:42:16.477+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-07T07:42:16.482+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

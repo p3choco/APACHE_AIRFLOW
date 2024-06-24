@@ -1,0 +1,2 @@
+[2024-06-11T13:49:25.310+0000] {task_context_logger.py:104} WARNING - Marking task instance <TaskInstance: xdag_id_1.log_info manual__2024-06-11T13:38:46.990599+00:00 [queued]> stuck in queued as failed. If the task instance has available retries, it will be retried.
+[2024-06-11T13:49:25.602+0000] {task_context_logger.py:104} ERROR - Executor reports task instance <TaskInstance: xdag_id_1.log_info manual__2024-06-11T13:38:46.990599+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

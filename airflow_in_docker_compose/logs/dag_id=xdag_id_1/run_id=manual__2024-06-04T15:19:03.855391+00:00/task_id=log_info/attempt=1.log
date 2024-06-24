@@ -1,0 +1,21 @@
+[2024-06-04T15:19:13.261+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-04T15:19:13.371+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: xdag_id_1.log_info manual__2024-06-04T15:19:03.855391+00:00 [queued]>
+[2024-06-04T15:19:13.389+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: xdag_id_1.log_info manual__2024-06-04T15:19:03.855391+00:00 [queued]>
+[2024-06-04T15:19:13.390+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-04T15:19:13.420+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): log_info> on 2024-06-04 15:19:03.855391+00:00
+[2024-06-04T15:19:13.436+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'xdag_id_1', 'log_info', 'manual__2024-06-04T15:19:03.855391+00:00', '--job-id', '74', '--raw', '--subdir', 'DAGS_FOLDER/jobs_dag.py', '--cfg-path', '/tmp/tmp2172kulk']
+[2024-06-04T15:19:13.440+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=418) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-04T15:19:13.448+0000] {standard_task_runner.py:91} INFO - Job 74: Subtask log_info
+[2024-06-04T15:19:13.449+0000] {standard_task_runner.py:63} INFO - Started process 423 to run task
+[2024-06-04T15:19:13.516+0000] {task_command.py:426} INFO - Running <TaskInstance: xdag_id_1.log_info manual__2024-06-04T15:19:03.855391+00:00 [running]> on host cd2a5574829a
+[2024-06-04T15:19:13.780+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='xdag_id_1' AIRFLOW_CTX_TASK_ID='log_info' AIRFLOW_CTX_EXECUTION_DATE='2024-06-04T15:19:03.855391+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-04T15:19:03.855391+00:00'
+[2024-06-04T15:19:13.785+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-04T15:19:13.786+0000] {logging_mixin.py:188} INFO - xdag_id_1 start processing tables in database: table_name_1
+[2024-06-04T15:19:13.787+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-06-04T15:19:13.788+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-04T15:19:13.826+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=xdag_id_1, task_id=log_info, run_id=manual__2024-06-04T15:19:03.855391+00:00, execution_date=20240604T151903, start_date=20240604T151913, end_date=20240604T151913
+[2024-06-04T15:19:13.887+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-04T15:19:13.925+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-04T15:19:13.927+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

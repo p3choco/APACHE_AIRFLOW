@@ -1,0 +1,24 @@
+[2024-06-10T07:59:22.937+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-10T07:59:22.984+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: trigger_dag_id.file_sensor manual__2024-06-10T07:59:19.932380+00:00 [queued]>
+[2024-06-10T07:59:22.997+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: trigger_dag_id.file_sensor manual__2024-06-10T07:59:19.932380+00:00 [queued]>
+[2024-06-10T07:59:22.999+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-10T07:59:23.022+0000] {taskinstance.py:2330} INFO - Executing <Task(FileSensor): file_sensor> on 2024-06-10 07:59:19.932380+00:00
+[2024-06-10T07:59:23.037+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=19726) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-10T07:59:23.041+0000] {standard_task_runner.py:63} INFO - Started process 19728 to run task
+[2024-06-10T07:59:23.041+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'trigger_dag_id', 'file_sensor', 'manual__2024-06-10T07:59:19.932380+00:00', '--job-id', '684', '--raw', '--subdir', 'DAGS_FOLDER/trigger_dag.py', '--cfg-path', '/tmp/tmp44cyk1cu']
+[2024-06-10T07:59:23.046+0000] {standard_task_runner.py:91} INFO - Job 684: Subtask file_sensor
+[2024-06-10T07:59:23.115+0000] {task_command.py:426} INFO - Running <TaskInstance: trigger_dag_id.file_sensor manual__2024-06-10T07:59:19.932380+00:00 [running]> on host db8c7b709f57
+[2024-06-10T07:59:23.231+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='trigger_dag_id' AIRFLOW_CTX_TASK_ID='file_sensor' AIRFLOW_CTX_EXECUTION_DATE='2024-06-10T07:59:19.932380+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-10T07:59:19.932380+00:00'
+[2024-06-10T07:59:23.234+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-10T07:59:23.234+0000] {baseoperator.py:399} WARNING - FileSensor.execute cannot be called outside TaskInstance!
+[2024-06-10T07:59:23.246+0000] {base.py:84} INFO - Using connection ID 'fs_default' for task execution.
+[2024-06-10T07:59:23.247+0000] {filesystem.py:85} INFO - Poking for file /opt/***/TRIGGER_FILE/file.txt
+[2024-06-10T08:00:08.474+0000] {local_task_job_runner.py:310} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2024-06-10T08:00:08.476+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-10T08:00:08.488+0000] {process_utils.py:132} INFO - Sending 15 to group 19728. PIDs of all processes in the group: [19728]
+[2024-06-10T08:00:08.489+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 19728
+[2024-06-10T08:00:08.490+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-06-10T08:00:08.491+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-10T08:00:08.548+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=19728, status='terminated', exitcode=0, started='07:59:22') (19728) terminated with exit code 0
